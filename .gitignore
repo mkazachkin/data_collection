@@ -1,0 +1,19 @@
+# Ignore PyCharm related files
+.idea/
+*.iml
+.pytest_cache/
+
+# Ignore compiled files
+*.pyc
+
+# Ignore logs
+logs/
+
+# Ignore other temporary files
+*.swp
+*.tmp
+
+# Ignore VCS information
+.svn/
+.hg/
+.git/
