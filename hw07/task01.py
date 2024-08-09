@@ -15,7 +15,7 @@ from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.chrome.webdriver import WebDriver
 
 WEBDRIVER = '/usr/bin/chromedriver'
-DEFAULT_PAGE_LIMIT = 10
+DEFAULT_PAGE_LIMIT = 3
 
 
 def get_webdriver(use_gui: bool = True) -> WebDriver:
@@ -102,7 +102,9 @@ except (SessionNotCreatedException, NoSuchDriverException) as err:
 dfs = []
 end_flag = False
 current_page = 'http://167000.ru/komi/prodam/dom/?sort=uptime'
-while not end_flag:
+counter = 0
+while not end_flag or counter < DEFAULT_PAGE_LIMIT:
+    counter += 1
     driver.get(current_page)
     page_soup = get_soup(driver.page_source)
     df = collect_data(page_soup)
